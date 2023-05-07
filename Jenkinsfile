@@ -44,21 +44,21 @@ pipeline{
                 }
             }
         }
-        /*
         stage('Static code analysis'){
             
             steps{
                 
                 script{
                     
-                    withSonarQubeEnv(credentialsId: 'sonar-api') {
-                        
+                    withSonarQubeEnv(credentialsId: 'SonarQube_Config') {
+    // some block                        
                         sh 'mvn clean package sonar:sonar'
                     }
                    }
                     
                 }
             }
+            /*
             stage('Quality Gate Status'){
                 
                 steps{
