@@ -86,7 +86,7 @@ pipeline{
                     nexusVersion: 'nexus3',
                     protocol: 'http', 
                     repository: 'DemoApp-release', 
-                    version: "$(readpomVersion.version)"
+                    version: "${readpomVersion.version}"
                 }
             }
         }
