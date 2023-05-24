@@ -102,5 +102,18 @@ pipeline{
                 }
             }
         }
+        stage("Docker image to the dockerHub"){
+            steps{
+                script{
+                    withCredentials([string(credentialsId: 'Docker_Hub_pwd', variable: 'Docker_Hub_Cred')]) 
+                    {
+                        sh 'docker login -u zafarhamza -p ${Docker_Hub_Cred}'
+                        sh 'docker image push zafarhamza/$JOB_NAME:v1.$BUILD_ID'
+                        sh 'docker image push zafarhamza/$JOB_NAME:latest'
+
+                     }
+                }
+            }
+        }
     }  
 }
