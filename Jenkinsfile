@@ -1,3 +1,5 @@
+@Library('my_shared_lib') _
+
 pipeline{
     
     agent any 
@@ -10,11 +12,16 @@ pipeline{
                 
                 script{
                     
-                    git branch: 'main', url: 'https://github.com/LearnerHamza/demo-counter-app.git'
+                    gitCheckout(
+                branch: "main",
+                url: "https://github.com/LearnerHamza/demo-counter-app.git"
+            )
+                    
                     
                 }
             }
         }
+    /*
         stage('UNIT testing'){
             
             steps{
@@ -115,5 +122,14 @@ pipeline{
                 }
             }
         }
+        stage("EKS Connect"){
+            steps{
+                script{
+                    
+                }
+            }
+        }
     }  
 }
+
+*/
