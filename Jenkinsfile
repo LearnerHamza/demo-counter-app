@@ -118,7 +118,7 @@ pipeline{
         stage("EKS Connect"){
             steps{
                 script{
-                    
+                    echo "test"      
                 }
             }
         }
